@@ -90,6 +90,13 @@ class db
                 WHERE id_gig={$data["id_gig"]}";
             $statement = $this->pdo->query($sql);
             return " | Gig updated.";
+        }
+        if ($data["type"] == "delete") {
+            error_log(implode(",", $data));
+            $sql = "DELETE FROM public.gig
+                WHERE id_gig={$data["id_gig"]}";
+            $statement = $this->pdo->query($sql);
+            return " | Gig deleted.";
         } else {
             return " | Unsuported operation {$data["type"]}";
         }

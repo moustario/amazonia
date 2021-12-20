@@ -4,6 +4,7 @@ const disconnect_btn = document.getElementById('disconnect-btn');
 const update_btn = document.getElementById('update-btn');
 const create_gig_btn = document.getElementById('create-gig-btn');
 const update_gig_btn = document.getElementsByClassName('update-gig-btn');
+const delete_gig_btn = document.getElementsByClassName('delete-gig-btn');
 
 disconnect_btn.addEventListener('click',
     () => {
@@ -84,6 +85,31 @@ for (let element of update_gig_btn) {
             formdata.append("category", document.getElementById(`gig-${id_gig}-category`).value);
             formdata.append("id_gig", id_gig);
             formdata.append("type", "update");
+
+            var requestOptions = {
+                method: 'POST',
+                body: formdata,
+                redirect: 'follow'
+            };
+
+            fetch("http://localhost:8000/gig", requestOptions)
+                .then(response => response.text())
+                .then(result => displayresponse(result.split(' | ')[1]))
+                .then(() => setTimeout(() => { window.location = 'http://localhost:8000/profile'; }, snackbar_redirect_timeout))
+                .catch(error => console.log('error', error));
+        },
+        false
+    );
+};
+
+for (let element of delete_gig_btn) {
+
+    element.addEventListener('click',
+        (event) => {
+            let id_gig = event.target.id.split('-')[2];
+            var formdata = new FormData();
+            formdata.append("id_gig", id_gig);
+            formdata.append("type", "delete");
 
             var requestOptions = {
                 method: 'POST',

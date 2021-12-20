@@ -9,7 +9,6 @@
   ?>
 </style>
 
-<!-- TODO delete gig proposed -->
 <!-- TODO history of sold gigs -->
 <!-- TODO history of purchased gigs -->
 
@@ -54,10 +53,12 @@
         <input id="gig-<?= $gig["id_gig"] ?>-category" class="input" type="text" value="<?= $gig["category_gig"] ?>" maxlength="13"></input>
         <input id="gig-<?= $gig["id_gig"] ?>-id_gig" class="input" type="hidden" value="<?= $gig["id_gig"] ?>"></input>
       </div>
-      <button id="update-gig-<?= $gig["id_gig"] ?>-btn" class="btn update-gig-btn">Update</button>
+      <div>
+        <button id="update-gig-<?= $gig["id_gig"] ?>-btn" class="btn update-gig-btn">Update</button>
+        <button id="delete-gig-<?= $gig["id_gig"] ?>-btn" class="btn delete-gig-btn">Delete</button>
+      </div>
     </div>
   <?php endforeach ?>
-
 
 </body>
 
