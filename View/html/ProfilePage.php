@@ -9,7 +9,6 @@
   ?>
 </style>
 
-<!-- TODO update gig proposed -->
 <!-- TODO delete gig proposed -->
 <!-- TODO history of sold gigs -->
 <!-- TODO history of purchased gigs -->

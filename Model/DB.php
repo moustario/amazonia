@@ -86,7 +86,7 @@ class db
             error_log(implode(",", $data));
             $id = count($this->get_users()) + 1;
             $sql = "UPDATE public.\"gig\"
-                SET \"price\"='{$data["price"]}', \"description\"='{$data["description"]}', category={$data["category"]}
+                SET \"price\"={$data["price"]}, description_gig='{$data["description"]}', category_gig='{$data["category"]}'
                 WHERE id_gig={$data["id_gig"]}";
             $statement = $this->pdo->query($sql);
             return " | Gig updated.";

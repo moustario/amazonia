@@ -3,7 +3,7 @@ console.log('JS Profile');
 const disconnect_btn = document.getElementById('disconnect-btn');
 const update_btn = document.getElementById('update-btn');
 const create_gig_btn = document.getElementById('create-gig-btn');
-const update_gig_btn = document.getElementById('update-gig-btn');
+const update_gig_btn = document.getElementsByClassName('update-gig-btn');
 
 disconnect_btn.addEventListener('click',
     () => {
@@ -73,26 +73,30 @@ create_gig_btn.addEventListener('click',
     false
 );
 
-// update_gig_btn.addEventListener('click',
-//     () => {
-//         var formdata = new FormData();
-//         formdata.append("price", document.getElementById('gig-price').value);
-//         formdata.append("description", document.getElementById('gig-description').value);
-//         formdata.append("category", document.getElementById('gig-category').value);
-//         formdata.append("id_gig", document.getElementById('gig-id_gig').value);
-//         formdata.append("type", "update");
+for (let element of update_gig_btn) {
 
-//         var requestOptions = {
-//             method: 'POST',
-//             body: formdata,
-//             redirect: 'follow'
-//         };
+    element.addEventListener('click',
+        (event) => {
+            let id_gig = event.target.id.split('-')[2];
+            var formdata = new FormData();
+            formdata.append("price", document.getElementById(`gig-${id_gig}-price`).value);
+            formdata.append("description", document.getElementById(`gig-${id_gig}-description`).value);
+            formdata.append("category", document.getElementById(`gig-${id_gig}-category`).value);
+            formdata.append("id_gig", id_gig);
+            formdata.append("type", "update");
 
-//         fetch("http://localhost:8000/gig", requestOptions)
-//             .then(response => response.text())
-//             .then(result => displayresponse(result.split(' | ')[1]))
-//             .then(() => setTimeout(() => { window.location = 'http://localhost:8000/profile'; }, snackbar_redirect_timeout))
-//             .catch(error => console.log('error', error));
-//     },
-//     false
-// );
+            var requestOptions = {
+                method: 'POST',
+                body: formdata,
+                redirect: 'follow'
+            };
+
+            fetch("http://localhost:8000/gig", requestOptions)
+                .then(response => response.text())
+                .then(result => displayresponse(result.split(' | ')[1]))
+                .then(() => setTimeout(() => { window.location = 'http://localhost:8000/profile'; }, snackbar_redirect_timeout))
+                .catch(error => console.log('error', error));
+        },
+        false
+    );
+};
