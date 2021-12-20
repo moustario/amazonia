@@ -9,8 +9,6 @@
   ?>
 </style>
 
-<!-- TODO history of sold gigs -->
-
 <body>
   <?php require_once __DIR__ . '/Header.php' ?>
   <div class="card offset-header">
@@ -71,6 +69,17 @@
     </div>
   <?php endforeach ?>
   <h1>Gigs you sold</h1>
+  <?php foreach ($data["sell_history"] as $sell) : ?>
+    <div class="card offset-header">
+      <div class="card-title"><?= $sell["category_gig"] ?> : <?= substr($sell["description_gig"], 0, 8) ?> </div>
+      <div class="card-description login-box">
+        <?= $sell["description_gig"] ?>
+      </div>
+      <div class="card-footer">
+        <b><i>by <?= $sell["author"] ?> for <?= $sell["price"] ?>€, bought the <?= $sell["timestamp_buy"] ?></i></b>
+      </div>
+    </div>
+  <?php endforeach ?>
 </body>
 
 <script>

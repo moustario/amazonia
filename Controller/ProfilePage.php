@@ -24,6 +24,7 @@ class ProfilePage extends Page
             }
         }
         $this->data["buying_history"] = $this->db->get_buying_history($_SESSION["user_index"] + 1);
+        $this->data["sell_history"] = $this->db->get_sell_history($_SESSION["user_index"] + 1);
         parent::render_view($this->data);
     }
 
