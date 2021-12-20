@@ -78,7 +78,7 @@ class db
             error_log(implode(",", $data));
             $id = count($this->get_gigs()) + 1;
             $sql = "INSERT INTO public.\"gig\"(id_gig, price, description_gig, category_gig, id_user)
-                VALUES ({$id}, '{$data["price"]}', {$data["description"]}, {$data["category"]}, {$data["id_user"]})";
+                VALUES ({$id}, '{$data["price"]}', '{$data["description"]}', '{$data["category"]}', {$data["id_user"]})";
             $statement = $this->pdo->query($sql);
             return " | Gig creation complete.";
         }

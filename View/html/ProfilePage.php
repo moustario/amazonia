@@ -9,8 +9,8 @@
   ?>
 </style>
 
-<!-- TODO add post gig -->
-<!-- TODO display update gig proposed -->
+<!-- TODO update gig proposed -->
+<!-- TODO delete gig proposed -->
 <!-- TODO history of sold gigs -->
 <!-- TODO history of purchased gigs -->
 
