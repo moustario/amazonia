@@ -1,0 +1,8 @@
+.login-box {
+    justify-content: space-around;
+    height: 100%;
+}
+
+span#register-link {
+    color: blue;
+}
