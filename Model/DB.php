@@ -47,6 +47,18 @@ class db
         return $rows;
     }
 
+    public function get_buying_history($id_user)
+    {
+        $sql = "SELECT buy.id_user AS buyer, timestamp_buy, rating_buy, gig.id_gig, gig.price, description_gig, category_gig, gig.id_user AS author FROM buy 
+	        INNER JOIN gig 
+		        ON gig.id_gig = buy.id_gig 
+	        WHERE buy.id_user = {$id_user}";
+        $statement = $this->pdo->query($sql);
+        $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+        return $rows;
+    }
+
     public function post_user($data)
     {
         error_log('Post user');

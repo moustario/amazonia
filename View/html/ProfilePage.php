@@ -10,7 +10,6 @@
 </style>
 
 <!-- TODO history of sold gigs -->
-<!-- TODO history of purchased gigs -->
 
 <body>
   <?php require_once __DIR__ . '/Header.php' ?>
@@ -43,7 +42,7 @@
       <button id="create-gig-btn" class="btn">Create</button>
     </div>
   </div>
-  <h1>Your gigs.</h1>
+  <h1>Your gigs</h1>
   <?php foreach ($data["gigs"] as $gig) : ?>
     <div class="card offset-header">
       <div class="card-title"><?= $gig["category_gig"] ?> : <?= substr($gig["description_gig"], 0, 8) ?> </div>
@@ -59,7 +58,19 @@
       </div>
     </div>
   <?php endforeach ?>
-
+  <h1>Gigs you purchased</h1>
+  <?php foreach ($data["buying_history"] as $buy) : ?>
+    <div class="card offset-header">
+      <div class="card-title"><?= $buy["category_gig"] ?> : <?= substr($buy["description_gig"], 0, 8) ?> </div>
+      <div class="card-description login-box">
+        <?= $buy["description_gig"] ?>
+      </div>
+      <div class="card-footer">
+        <b><i>by <?= $buy["author"] ?> for <?= $buy["price"] ?>€, bought the <?= $buy["timestamp_buy"] ?></i></b>
+      </div>
+    </div>
+  <?php endforeach ?>
+  <h1>Gigs you sold</h1>
 </body>
 
 <script>
