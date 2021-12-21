@@ -1,7 +1,5 @@
 <?php
 
-// TODO add admin users
-
 require_once __DIR__ . '/router/Request.php';
 require_once __DIR__ . '/router/Router.php';
 $router = new Router(new Request);

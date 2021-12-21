@@ -2,8 +2,6 @@
   <title>E-shop</title>
 </head>
 
-<!-- TODO remove purchase when not connected -->
-<!-- TODO remove purchase when on gig or not display at all -->
 <style>
   <?php include './View/css/Home.css'; ?>
 </style>
@@ -24,7 +22,9 @@
           <b><i>by <?= $data["users"][$gig["id_user"] - 1]["name"] ?> for <?= $gig["price"] ?>€</i></b>
         </div>
         <input id="gig-<?= $gig["id_gig"] ?>-id_user" class="input" type="hidden" value="<?= $_SESSION["user_index"] + 1 ?>"></input>
-        <button id="purchase-<?= $gig["id_gig"] ?>-btn" class="btn purchase-btn">Purchase</button>
+        <?php if ($_SESSION['is_connected'] && ($_SESSION["name"] != $data["users"][$gig["id_user"] - 1]["name"])) : ?>
+          <button id="purchase-<?= $gig["id_gig"] ?>-btn" class="btn purchase-btn">Purchase</button>
+        <?php endif ?>
       </div>
 
     <?php endforeach ?>
