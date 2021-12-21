@@ -21,6 +21,6 @@ class RegisterPage extends Page
 
     public function register_user($data)
     {
-        return $this->db->create_user($data);
+        return $this->db->post_user($data);
     }
 }

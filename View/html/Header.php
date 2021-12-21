@@ -7,7 +7,7 @@
         <h1>Amazonia</h1>
     </span>
     <div class="search-bar">
-        <input class="input"></input>
+        <input class="input" disabled></input>
         <button class="btn"><img id="search-icon" src="http://localhost:8000/public/loupe.png" /></button>
     </div>
     <div>
