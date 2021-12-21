@@ -10,7 +10,13 @@
         <input class="input"></input>
         <button class="btn"><img id="search-icon" src="http://localhost:8000/public/loupe.png" /></button>
     </div>
-    <button id="btn-login" class="btn"><?= ($_SESSION["is_connected"]) ? $_SESSION["name"] : "Login"; ?></button>
+    <div>
+        <button id="btn-login" class="btn"><?= ($_SESSION["is_connected"]) ? $_SESSION["name"] : "Login"; ?></button>
+        <?php if ($_SESSION['use_to_be_admin']) : ?>
+            <input id="admin-id" type="hidden" value="<?= $_SESSION['use_to_be_admin_id'] ?>"></input>
+            <button id="btn-back-admin" class="btn">Back to admin</button>
+        <?php endif ?>
+    </div>
 </div>
 
 <script>

@@ -5,6 +5,7 @@ const update_btn = document.getElementById('update-btn');
 const create_gig_btn = document.getElementById('create-gig-btn');
 const update_gig_btn = document.getElementsByClassName('update-gig-btn');
 const delete_gig_btn = document.getElementsByClassName('delete-gig-btn');
+const admin_btn = document.getElementById('admin-btn');
 
 disconnect_btn.addEventListener('click',
     () => {
@@ -126,3 +127,11 @@ for (let element of delete_gig_btn) {
         false
     );
 };
+
+admin_btn.addEventListener(
+    'click',
+    () => {
+        window.location = 'http://localhost:8000/admin'
+    },
+    false,
+);

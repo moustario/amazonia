@@ -9,6 +9,7 @@ CREATE TABLE public."user" (
     "name" varchar NULL,
     "password" varchar NULL,
     wallet NUMERIC(15, 2),
+    admin_user boolean,
     PRIMARY KEY(id_user)
 );
 CREATE TABLE public."gig" (
@@ -31,12 +32,13 @@ CREATE TABLE public."buy"(
     CONSTRAINT fk_gig_buy FOREIGN KEY(id_gig) REFERENCES public."gig"(id_gig) ON DELETE CASCADE ON UPDATE CASCADE
 );
 -- INSERTING DATA
-INSERT INTO public."user"(id_user, "name", password, wallet)
-VALUES (1, 'Fabiii', 'bg', 1000),
-    (2, 'Kevin', 'bg', 100),
-    (3, 'Steven', 'bg', 500),
-    (4, 'Bébou', 'Jean-Seb', 10000),
-    (5, 'Pablito', 'ilovesnow', 10);
+INSERT INTO public."user"(id_user, "name", password, wallet, admin_user)
+VALUES (1, 'Fabiii', 'bg', 1000, FALSE),
+    (2, 'Kevin', 'bg', 100, FALSE),
+    (3, 'Steven', 'bg', 500, FALSE),
+    (4, 'Bébou', 'Jean-Seb', 10000, TRUE),
+    (5, 'Pablito', 'ilovesnow', 10, TRUE),
+    (6, 'admin', 'admin', 0, TRUE);
 INSERT INTO public."gig"(
         id_gig,
         price,

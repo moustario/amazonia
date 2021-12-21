@@ -10,6 +10,7 @@ require_once __DIR__ . '/Controller/HomePage.php';
 require_once __DIR__ . '/Controller/LoginPage.php';
 require_once __DIR__ . '/Controller/RegisterPage.php';
 require_once __DIR__ . '/Controller/ProfilePage.php';
+require_once __DIR__ . '/Controller/AdminPage.php';
 
 session_start();
 
@@ -28,6 +29,7 @@ $homePage = new HomePage();
 $loginPage = new LoginPage();
 $registerPage = new RegisterPage();
 $profilePage = new ProfilePage();
+$adminPage = new AdminPage();
 
 $router->get('/', function () use ($homePage) {
     $homePage->render_view([]);
@@ -66,4 +68,12 @@ $router->post('/gig', function ($request) use ($profilePage) {
 
 $router->post('/buy', function ($request) use ($homePage) {
     return $homePage->buy_gig($request->getBody());
+});
+
+$router->get('/admin', function () use ($adminPage) {
+    if ($_SESSION["admin_user"]) return $adminPage->render_view([]);
+});
+
+$router->post('/admin/switch', function ($request) use ($adminPage) {
+    if ($_SESSION["admin_user"] || $_SESSION['use_to_be_admin']) return $adminPage->change_account($request->getBody());
 });

@@ -80,6 +80,12 @@
       </div>
     </div>
   <?php endforeach ?>
+
+  <?php if ($_SESSION['admin_user']) : ?>
+    <div id="admin-wrapper">
+      <button id="admin-btn" class="btn">admin</button>
+    </div>
+  <?php endif ?>
 </body>
 
 <script>

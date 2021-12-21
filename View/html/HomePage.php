@@ -2,6 +2,8 @@
   <title>E-shop</title>
 </head>
 
+<!-- TODO remove purchase when not connected -->
+<!-- TODO remove purchase when on gig or not display at all -->
 <style>
   <?php include './View/css/Home.css'; ?>
 </style>

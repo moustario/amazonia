@@ -1,4 +1,4 @@
-displayresponse = (response, timeout = 2500) => {
+displayresponse = (response, timeout = 1000) => {
     var snack = document.getElementById("snackbar");
     snack.innerHTML = response;
     snack.className = "show";
@@ -6,4 +6,4 @@ displayresponse = (response, timeout = 2500) => {
     setTimeout(() => { snack.className = snack.className.replace("show", ""); }, timeout);
 }
 
-const snackbar_redirect_timeout = 3000;
+const snackbar_redirect_timeout = 1200;

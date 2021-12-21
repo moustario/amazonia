@@ -27,8 +27,11 @@ class LoginPage extends Page
             $_SESSION["name"] = $data["name"];
             $all_users = $this->db->get_users();
             foreach ($all_users as $key => $value) {
-                if ($value["name"] == $data["name"])
+                if ($value["name"] == $data["name"]) {
+                    $_SESSION["admin_user"] = $value["admin_user"];
                     $_SESSION["user_index"] = $key;
+                    $_SESSION["id_user"] = $value["id_user"];
+                }
             }
         }
         return $user_exists;

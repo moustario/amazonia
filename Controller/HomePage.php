@@ -24,6 +24,8 @@
 
         public function buy_gig($data)
         {
+            // TODO Check amount before
+            // TODO substract price to account and add to seller
             return $this->db->post_buy($data);
         }
     }

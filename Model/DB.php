@@ -49,7 +49,7 @@ class db
 
     public function get_buying_history($id_user)
     {
-        $sql = "SELECT buy.id_user AS buyer, timestamp_buy, rating_buy, gig.id_gig, gig.price, description_gig, category_gig, gig.id_user AS author FROM buy 
+        $sql = "SELECT buy.id_user AS buyer, timestamp_buy, gig.id_gig, gig.price, description_gig, category_gig, gig.id_user AS author FROM buy 
 	        INNER JOIN gig 
 		        ON gig.id_gig = buy.id_gig 
 	        WHERE buy.id_user = {$id_user}";
@@ -61,7 +61,7 @@ class db
 
     public function get_sell_history($id_user)
     {
-        $sql = "SELECT buy.id_user AS buyer, timestamp_buy, rating_buy, gig.id_gig, gig.price, description_gig, category_gig, gig.id_user AS author FROM buy 
+        $sql = "SELECT buy.id_user AS buyer, timestamp_buy, gig.id_gig, gig.price, description_gig, category_gig, gig.id_user AS author FROM buy 
 	        INNER JOIN gig 
 		        ON gig.id_gig = buy.id_gig 
             WHERE buy.id_gig in (SELECT gig.id_gig from gig where gig.id_user = {$id_user})";

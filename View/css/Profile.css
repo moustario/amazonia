@@ -1,3 +1,7 @@
 .login-box {
     justify-content: space-around;
 }
+
+#admin-wrapper {
+    height: 10em;
+}
