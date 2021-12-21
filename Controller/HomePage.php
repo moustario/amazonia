@@ -21,4 +21,9 @@
             $this->data["gigs"] = $this->db->get_gigs();
             parent::render_view($this->data);
         }
+
+        public function buy_gig($data)
+        {
+            return $this->db->post_buy($data);
+        }
     }

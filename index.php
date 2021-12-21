@@ -63,3 +63,7 @@ $router->post('/disconnet', function ($request) use ($profilePage) {
 $router->post('/gig', function ($request) use ($profilePage) {
     return $profilePage->update_gig($request->getBody());
 });
+
+$router->post('/buy', function ($request) use ($homePage) {
+    return $homePage->buy_gig($request->getBody());
+});

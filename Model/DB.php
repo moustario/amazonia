@@ -71,6 +71,20 @@ class db
         return $rows;
     }
 
+    public function post_buy($data)
+    {
+        if ($data["type"] == "create") {
+            error_log(implode(",", $data));
+            $data["timestamp_buy"] = date("Y-m-d H:i:s");
+            $sql = "INSERT INTO public.buy(id_gig, id_user, timestamp_buy)
+                VALUES ('{$data["id_gig"]}', '{$data["id_user"]}', '{$data["timestamp_buy"]}')";
+            $statement = $this->pdo->query($sql);
+            return " | Gig purchased complete.";
+        } else {
+            return " | Unsuported operation {$data["type"]}";
+        }
+    }
+
     public function post_user($data)
     {
         error_log('Post user');
