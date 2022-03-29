@@ -4,6 +4,8 @@ A fiver like web-app base on PHP, HTML/CSS and javascript. No library or framewo
 
 *by mourstario*
 
+This is a small class project for the web app cours at Plzen zcu.
+
 ## To run 
 
 > php -S localhost:8000
